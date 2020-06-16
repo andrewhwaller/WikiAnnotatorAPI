@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def show
-        options = { include: [:quotes] }
+        options = { include: [:articles] }
         render json: UserSerializer.new(@user, options).serializable_hash
     end
 

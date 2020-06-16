@@ -6,7 +6,7 @@ class Api::V1::QuotesController < ApplicationController
         article = current_user.articles.build(article_params)
         article.user_id = current_user.id
         if article.save
-            render json: QuoteSerializer.new(article).serializable_hash, status: :created
+            render json: ArticeSerializer.new(article).serializable_hash, status: :created
         else
             render json: { errors: article.errors }, status: :unprocessable_entity
         end
@@ -14,21 +14,21 @@ class Api::V1::QuotesController < ApplicationController
     
     def show
         options = { include: [:user] }
-        render json: QuoteSerializer.new(@article, options).serializable_hash
+        render json: ArticleSerializer.new(@article, options).serializable_hash
     end
 
     def index
         @articles = current_user.articles.all
         if @articles
-            render json: QuoteSerializer.new(@articles).serializable_hash
+            render json: ArticleSerializer.new(@articles).serializable_hash
         else
             render json: { errors: article.errors }, status: :unprocessable_entity
         end
     end
 
     def update
-        if @article.update(quote_params)
-            render json: QuoteSerializer.new(@article).serializable_hash
+        if @article.update(article_params)
+            render json: ArticleSerializer.new(@article).serializable_hash
         else
             render json: @article.errors, status: :unprocessable_entity
         end
