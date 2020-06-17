@@ -80,8 +80,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: wiki_annotator_api_production
+#   username: wiki_annotator_api
+#   password: <%= ENV['WIKI_ANNOTATOR_API_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  database: wiki_annotator_api_production
-  username: wiki_annotator_api
-  password: <%= ENV['WIKI_ANNOTATOR_API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
