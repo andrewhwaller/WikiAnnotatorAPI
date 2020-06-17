@@ -15,11 +15,14 @@
 # gem 'pg'
 #
 default: &default
+  host: 127.0.0.1
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username:
+  password:
 
 development:
   <<: *default
@@ -39,11 +42,11 @@ development:
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: localhost
+  # host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: 5433
+  # port: 5433
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -80,11 +83,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# production:
-#   <<: *default
-#   database: wiki_annotator_api_production
-#   username: wiki_annotator_api
-#   password: <%= ENV['WIKI_ANNOTATOR_API_DATABASE_PASSWORD'] %>
-
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+  database: wiki_annotator_api_production
+  username: wiki_annotator_api
+  password: <%= ENV['WIKI_ANNOTATOR_API_DATABASE_PASSWORD'] %>
