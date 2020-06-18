@@ -1,4 +1,4 @@
-class Api::V1::QuotesController < ApplicationController
+class Api::V1::ArticlesController < ApplicationController
     before_action :check_login, only: [:create, :index, :show, :update, :destroy]
     before_action :check_owner, only: [:update, :destroy, :show]
     
