@@ -42,7 +42,7 @@ class Api::V1::ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:title, :text, :page_id, :wiki_url)
+        params.require(:article).permit(:title, :extract, :page_id)
     end
 
     def check_owner
