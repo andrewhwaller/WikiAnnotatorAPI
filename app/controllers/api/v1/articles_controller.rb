@@ -6,7 +6,7 @@ class Api::V1::ArticlesController < ApplicationController
         article = current_user.articles.build(article_params)
         article.user_id = current_user.id
         if article.save
-            render json: ArticeSerializer.new(article).serializable_hash, status: :created
+            render json: ArticleSerializer.new(article).serializable_hash, status: :created
         else
             render json: { errors: article.errors }, status: :unprocessable_entity
         end
