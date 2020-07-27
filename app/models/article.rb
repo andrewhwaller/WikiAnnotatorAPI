@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-    validates :title, :extract, presence: true
+    validates :title, :user_id, :extract, presence: true
     belongs_to :user
 end
 

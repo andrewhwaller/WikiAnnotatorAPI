@@ -1,4 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
+    before_action :set_article, only: [:show, :update, :destroy]
     before_action :check_login, only: [:create, :index, :show, :update, :destroy]
     before_action :check_owner, only: [:update, :destroy, :show]
     
@@ -47,6 +48,10 @@ class Api::V1::ArticlesController < ApplicationController
 
     def check_owner
         head :forbidden unless @article.user_id == current_user&.id
+    end
+
+    def set_article
+        @article = Article.find(params[:id])
     end
     
 end
