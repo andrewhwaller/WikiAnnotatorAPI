@@ -13,6 +13,7 @@ Once you're logged in you'll be greeted by the home page. From here you can eith
 If you'd like to log out and end your session, simply use the "Log out" button in the navigation bar.
 
 ## Contributing
+The repo for WikiAnnotator's React client can be found at https://github.com/andrewhwaller/wikiannotatorblueprint
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/andrewhwaller/WikiAnnotatorAPI. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
