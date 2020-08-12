@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     
     def create
         @user = User.new(user_params)
-        raise params.inspect
+        logger.debug params
         if @user.save
             render json: UserSerializer.new(@user).serializable_hash, status: :created
         else
